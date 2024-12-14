@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwl5fkbklar7o"]
+[gd_scene load_steps=15 format=3 uid="uid://cwl5fkbklar7o"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_6k2rm"]
 [ext_resource type="Texture2D" uid="uid://bpu7ksvkriyr8" path="res://assets/sprites/player/ExamplePlayerSprite.png" id="1_14w5e"]
+[ext_resource type="Script" path="res://scripts/player/player_state/player_state_machine.gd" id="3_b7t58"]
+[ext_resource type="Script" path="res://scripts/player/player_state/player_state_idle.gd" id="4_dqxq5"]
+[ext_resource type="Script" path="res://scripts/player/player_state/player_state_walk.gd" id="5_mjmgl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rf8ac"]
 
@@ -155,3 +158,12 @@ shape = SubResource("CircleShape2D_rf8ac")
 libraries = {
 "": SubResource("AnimationLibrary_1cd0u")
 }
+
+[node name="state_machine" type="Node" parent="."]
+script = ExtResource("3_b7t58")
+
+[node name="idle" type="Node" parent="state_machine"]
+script = ExtResource("4_dqxq5")
+
+[node name="walk" type="Node" parent="state_machine"]
+script = ExtResource("5_mjmgl")
