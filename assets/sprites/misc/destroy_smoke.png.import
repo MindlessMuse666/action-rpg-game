@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpu7ksvkriyr8"
-path="res://.godot/imported/ExamplePlayerSprite.png-0c47fce751fa828e288c66c0d63006d3.ctex"
+uid="uid://te1715y4hbvs"
+path="res://.godot/imported/destroy_smoke.png-da6dd175af31b691d2565c95ac7b7c1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/ExamplePlayerSprite.png"
-dest_files=["res://.godot/imported/ExamplePlayerSprite.png-0c47fce751fa828e288c66c0d63006d3.ctex"]
+source_file="res://assets/sprites/misc/destroy_smoke.png"
+dest_files=["res://.godot/imported/destroy_smoke.png-da6dd175af31b691d2565c95ac7b7c1a.ctex"]
 
 [params]
 

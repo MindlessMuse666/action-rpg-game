@@ -7,3 +7,4 @@ class_name GlobalConstants extends Node
 """ Animation / Анимации """
 const idle: String = "idle"
 const walk: String = "walk"
+const attack: String = "attack"

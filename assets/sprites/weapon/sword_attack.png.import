@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://te1715y4hbvs"
-path="res://.godot/imported/DestroySmoke.png-a8267bf74791219799804202bc7e862d.ctex"
+uid="uid://dwakcwaoaf03a"
+path="res://.godot/imported/sword_attack.png-e914912bdc1bf5d8ad7cf61f83b627c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/DestroySmoke.png"
-dest_files=["res://.godot/imported/DestroySmoke.png-a8267bf74791219799804202bc7e862d.ctex"]
+source_file="res://assets/sprites/weapon/sword_attack.png"
+dest_files=["res://.godot/imported/sword_attack.png-e914912bdc1bf5d8ad7cf61f83b627c6.ctex"]
 
 [params]
 
