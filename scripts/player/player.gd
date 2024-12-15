@@ -57,8 +57,10 @@ func set_direction() -> bool:
 func _move() -> void:
 	""" Player movement which is based on an Input System. """
 	""" Передвижение игрока, основанное на Input System. """
-	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	direction = Vector2 (
+		Input.get_axis("left", "right"),
+		Input.get_axis("up", "down")
+	).normalized()
 
 
 func _get_animation_direction() -> String:

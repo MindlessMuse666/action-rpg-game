@@ -143,6 +143,9 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 16
+motion_mode = 1
+wall_min_slide_angle = 0.174533
 script = ExtResource("1_6k2rm")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -158,6 +161,8 @@ shape = SubResource("CircleShape2D_rf8ac")
 libraries = {
 "": SubResource("AnimationLibrary_1cd0u")
 }
+
+[node name="camera" type="Camera2D" parent="."]
 
 [node name="state_machine" type="Node" parent="."]
 script = ExtResource("3_b7t58")
