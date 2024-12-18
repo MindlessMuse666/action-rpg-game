@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 func update_animation(state: String) -> void:
 	""" Animation update. """
 	""" Обновление анимации. """
-	animation.play(state + "_" + _get_animation_direction())
+	animation.play(state + "_" + get_animation_direction())
 
 
 func set_direction() -> bool:
@@ -54,16 +54,7 @@ func set_direction() -> bool:
 	return true
 
 
-func _move() -> void:
-	""" Player movement which is based on an Input System. """
-	""" Передвижение игрока, основанное на Input System. """
-	direction = Vector2 (
-		Input.get_axis("left", "right"),
-		Input.get_axis("up", "down")
-	).normalized()
-
-
-func _get_animation_direction() -> String:
+func get_animation_direction() -> String:
 	""" Function which returns a string defining the direction for the animation. """
 	""" Функция, возвращающая строку, определяющую направление для анимации. """
 	if cardinal_direction == Vector2.DOWN:
@@ -72,6 +63,15 @@ func _get_animation_direction() -> String:
 		return "up"
 	else:
 		return "side"
+
+
+func _move() -> void:
+	""" Player movement which is based on an Input System. """
+	""" Передвижение игрока, основанное на Input System. """
+	direction = Vector2 (
+		Input.get_axis("left", "right"),
+		Input.get_axis("up", "down")
+	).normalized()
 
 
 func _flip_sprite() -> void:

@@ -3,17 +3,21 @@
 class_name PlayerStateAttack extends PlayerState
 
 
+@export var attack_audio: AudioStream = preload("res://assets/audio/sfx/attack_sfx/sword_attack.wav")
+@export_range(.5, 20, .5) var decelerate_speed: float = 5.75
 
 @onready var idle: PlayerState = $"../idle"
 @onready var walk: PlayerState = $"../walk"
 @onready var animation: AnimationPlayer = $"../../animation"
+@onready var attack_animation: AnimationPlayer = $"../../sprite/attack_sprite/attack_animation"
+@onready var audio: AudioStreamPlayer2D = $"../../audio/audio"
 
 var is_attack: bool = false
 
 
 
 func state_process(_delta: float) -> PlayerState:
-	player.velocity = Vector2.ZERO
+	player.velocity -= player.velocity * decelerate_speed * _delta
 
 	if !is_attack:
 		if player.direction == Vector2.ZERO:
@@ -36,9 +40,17 @@ func handle_input(_event: InputEvent) -> PlayerState:
 func enter() -> void:
 	""" Procedure which is called when entering an attack state. """
 	""" Процедура, которая выполняется при входе в состояние атаки. """
+
+	# Анимация / Animation
 	is_attack = true
 	animation.animation_finished.connect(_end_attack)
 	player.update_animation(GlobalConstants.attack)
+	attack_animation.play(GlobalConstants.attack + "_" + player.get_animation_direction())
+
+	# Аудио / Audio
+	audio.stream = attack_audio
+	audio.pitch_scale = randf_range(.9, 1.1)
+	audio.play()
 
 
 func exit() -> void:
