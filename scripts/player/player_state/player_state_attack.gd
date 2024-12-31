@@ -9,7 +9,7 @@ class_name PlayerStateAttack extends PlayerState
 
 @onready var idle: PlayerState = $"../idle"
 @onready var walk: PlayerState = $"../walk"
-@onready var hurt_box: HurtBox = $"../../interactions/hurt_box"
+@onready var hurt_box: HurtBox = %attack_hurt_box
 @onready var animation: AnimationPlayer = $"../../animation"
 @onready var attack_animation: AnimationPlayer = $"../../sprite/attack_sprite/attack_animation"
 @onready var audio: AudioStreamPlayer2D = $"../../audio/audio"

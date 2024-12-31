@@ -8,6 +8,13 @@ class_name Player extends CharacterBody2D
 @onready var sprite: Sprite2D = $sprite
 @onready var state_machine: PlayerStateMachine = $state_machine
 
+const DIRECTIONS = [
+	Vector2.RIGHT,
+	Vector2.DOWN,
+	Vector2.LEFT,
+	Vector2.UP
+]
+
 var cardinal_direction: Vector2 = Vector2.DOWN
 var direction: Vector2 = Vector2.ZERO
 
@@ -37,15 +44,11 @@ func update_animation(state: String) -> void:
 func set_direction() -> bool:
 	""" Function which returns `true` and updates the player's direction if it has changed. """
 	""" Функция, которая возвращает true и обновляет направление игрока, если оно изменилось. """
-	var new_direction: Vector2 = cardinal_direction
-
 	if direction == Vector2.ZERO:
 		return false
 
-	if direction.y == 0:
-		new_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0:
-		new_direction = Vector2.UP if direction.y < 0 else Vector2.DOWN
+	var direction_id: int = int(round((direction + cardinal_direction * .1).angle() / TAU * DIRECTIONS.size()))
+	var new_direction: Vector2 = DIRECTIONS[direction_id]
 
 	if new_direction == cardinal_direction:
 		return false
