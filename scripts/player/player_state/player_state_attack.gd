@@ -5,9 +5,11 @@ class_name PlayerStateAttack extends PlayerState
 
 @export var attack_audio: AudioStream = preload("res://assets/audio/sfx/attack_sfx/sword_attack.wav")
 @export_range(.5, 20, .5) var decelerate_speed: float = 5.75
+@export_range(.05, 1, .05) var pre_destruction_delay: float = .075
 
 @onready var idle: PlayerState = $"../idle"
 @onready var walk: PlayerState = $"../walk"
+@onready var hurt_box: HurtBox = $"../../interactions/hurt_box"
 @onready var animation: AnimationPlayer = $"../../animation"
 @onready var attack_animation: AnimationPlayer = $"../../sprite/attack_sprite/attack_animation"
 @onready var audio: AudioStreamPlayer2D = $"../../audio/audio"
@@ -40,9 +42,13 @@ func handle_input(_event: InputEvent) -> PlayerState:
 func enter() -> void:
 	""" Procedure which is called when entering an attack state. """
 	""" Процедура, которая выполняется при входе в состояние атаки. """
+	is_attack = true
+
+	# Обработка столкновений / Collision handling
+	await get_tree().create_timer(pre_destruction_delay).timeout
+	hurt_box.monitoring = true
 
 	# Анимация / Animation
-	is_attack = true
 	animation.animation_finished.connect(_end_attack)
 	player.update_animation(GlobalConstants.attack)
 	attack_animation.play(GlobalConstants.attack + "_" + player.get_animation_direction())
@@ -57,6 +63,11 @@ func exit() -> void:
 	""" Procedure that is called when the attack state is exited. """
 	""" Процедура, которая выполняется при выходе из состояния атаки. """
 	is_attack = false
+
+	# Обработка столкновений / Collision handling
+	hurt_box.monitoring = false
+
+	# Завершение анимации атаки / Attack animation finish
 	animation.animation_finished.disconnect(_end_attack)
 
 

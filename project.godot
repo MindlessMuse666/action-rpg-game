@@ -42,13 +42,19 @@ folder_colors={
 "res://assets/": "red",
 "res://assets/scenes/": "orange",
 "res://assets/sprites/": "pink",
+"res://assets/sprites/environment/": "orange",
+"res://assets/sprites/environment/nature/": "green",
 "res://assets/sprites/misc/": "green",
 "res://assets/sprites/player/": "red",
 "res://assets/sprites/weapon/": "purple",
 "res://assets/tilemaps/": "green",
 "res://entities/": "blue",
+"res://entities/environment/": "orange",
+"res://entities/environment/nature/": "green",
 "res://entities/player/": "red",
 "res://scripts/": "green",
+"res://scripts/environment/": "orange",
+"res://scripts/environment/nature/": "green",
 "res://scripts/player/": "red",
 "res://scripts/player/player_state/": "blue"
 }
@@ -89,7 +95,9 @@ attack={
 [layer_names]
 
 2d_physics/layer_1="player"
+2d_physics/layer_2="player_hurt"
 2d_physics/layer_5="wall"
+2d_physics/layer_9="enemy"
 
 [rendering]
 

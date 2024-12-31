@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://coyto5biwhwsg"]
+
+[ext_resource type="Script" path="res://scripts/environment/nature/plants/plant.gd" id="1_myna5"]
+[ext_resource type="Texture2D" uid="uid://cwyxjon6hntui" path="res://assets/sprites/environment/nature/plants/bush.png" id="1_yuwsa"]
+[ext_resource type="PackedScene" uid="uid://cb2ct30x155f0" path="res://scripts/global_scripts/collisions/hit_box/hit_box.tscn" id="2_0j0pk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4bry"]
+size = Vector2(24, 16)
+
+[node name="bush" type="Node2D"]
+script = ExtResource("1_myna5")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_yuwsa")
+hframes = 16
+vframes = 3
+
+[node name="hit_box" parent="." instance=ExtResource("2_0j0pk")]
+position = Vector2(0, -8)
+
+[node name="collision_shape" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_d4bry")
+
+[node name="static_body" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 16
+collision_mask = 0
+
+[node name="collision_shape" type="CollisionShape2D" parent="static_body"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_d4bry")

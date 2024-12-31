@@ -11,6 +11,8 @@ class_name Player extends CharacterBody2D
 var cardinal_direction: Vector2 = Vector2.DOWN
 var direction: Vector2 = Vector2.ZERO
 
+signal direction_changed(new_direction: Vector2)
+
 
 
 func _ready() -> void:
@@ -49,6 +51,7 @@ func set_direction() -> bool:
 		return false
 
 	cardinal_direction = new_direction
+	direction_changed.emit(new_direction)
 	_flip_sprite()
 
 	return true
