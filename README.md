@@ -51,3 +51,7 @@ git clone https://github.com/MindlessMuse666/action-rpg-game.git
 * Michael Games - *Ментор*
   - GitHub: [michaelmalaska](https://github.com/michaelmalaska "Michael: https://github.com/michaelmalaska")
   - YouTube: [Michael's YouTube-Channel](https://www.youtube.com/@MichaelGamesOfficial "Michael's YouTube channel")
+
+## Лицензия
+
+Этот проект распространяется под лицензией MIT - смотри файл [LICENSE](LICENSE) для деталей.
